@@ -16,7 +16,7 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
   const fetchFeedback = async () => {
-    const response = await fetch("/feedback?_sort=id&_order=desc");
+    const response = await fetch("/feedback?_sort=id&order=desc");
     const data = await response.json();
 
     setFeedback(data);
@@ -27,10 +27,10 @@ export const FeedbackProvider = ({ children }) => {
     const response = await fetch("/feedback", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newFeedback),
+      body: newFeedback,
     });
-    const data = await response.json();
-    setFeedback([data, ...feedback]);
+
+    setFeedback([newFeedback, ...feedback]);
   };
 
   const editFeedback = (item) => {
