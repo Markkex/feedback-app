@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 const Header = ({ text, bgColor, textColor }) => {
   const HeaderStyles = {
