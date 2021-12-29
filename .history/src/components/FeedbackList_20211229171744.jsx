@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import FeedbackContext from "../context/FeedbackContext";
 import Spinner from "./shared/Spinner";
-
 const FeedbackList = () => {
   const { feedback, isLoading } = useContext(FeedbackContext);
 

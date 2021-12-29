@@ -17,13 +17,14 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
   const fetchFeedback = async () => {
-    const response = await fetch("/feedback?_sort=id&order=desc");
+    const response = await fetch(
+      "http://localhost:5000/feedback?_sort=id&order=desc"
+    );
     const data = await response.json();
 
     setFeedback(data);
     setIsLoading(false);
   };
-
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     setFeedback([newFeedback, ...feedback]);
@@ -44,7 +45,7 @@ export const FeedbackProvider = ({ children }) => {
       value={{
         feedback,
         feedbackEdit,
-        isLoading,
+        idLoading,
         deleteFeedback,
         addFeedback,
         editFeedback,
