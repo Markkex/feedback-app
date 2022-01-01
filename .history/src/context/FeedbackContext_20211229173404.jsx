@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
+
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
@@ -44,9 +45,9 @@ export const FeedbackProvider = ({ children }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updItem),
     });
-    const data = await response.json();
+    const 
     setFeedback(
-      feedback.map((item) => (item.id === id ? { ...item, ...data } : item))
+      feedback.map((item) => (item.id === id ? { ...item, ...updItem } : item))
     );
   };
 

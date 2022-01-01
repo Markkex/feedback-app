@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { json } from "stream/consumers";
 
 const FeedbackContext = createContext();
 
@@ -44,9 +45,8 @@ export const FeedbackProvider = ({ children }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updItem),
     });
-    const data = await response.json();
     setFeedback(
-      feedback.map((item) => (item.id === id ? { ...item, ...data } : item))
+      feedback.map((item) => (item.id === id ? { ...item, ...updItem } : item))
     );
   };
 
